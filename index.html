@@ -4,69 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CS:GO - Case</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <script src="alert-script.js"></script> <!-- Lien vers votre fichier JavaScript -->
   <link rel="stylesheet" href="boutique-styles.css"> <!-- Ajoutez le lien vers le CSS de la fenêtre modale -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <h1 class="title">CS:GO - Case</h1>
-    <nav class="menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><button class="bout" id="addButton">Boutique</button></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="main-container">
+    <header class="header">
+      <img src="logo.png" class="logo">
+      <h1 class="title">CS:GO - Case</h1>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><button class="bout" id="addButton">Boutique</button></li>
+        </ul>
+      </nav>
+    </header>
 
-   <div id="alert-container" class="alert-container">
+    <div id="alert-container" class="alert-container">
       <div class="alert-box">
-          <p>La monaie du site, les <b>dollars</b> sont une monaie fictive, celle-ci se réfèrent au vrai prix des lots, mais aucune valeur leur est associés.</p>
+          <p>La monaie du site, les <b>dollars</b> sont une monaie fictive, celle-ci se réfèrent au vrai prix des lots, mais aucune valeur leur est associée.</p>
           <button class="alert" id="accept-btn">J'ai compris</button>
       </div>
     </div>
 
-    <div class="container">
-  <div class="progress-container">
-    <p>Niveaux: <span id="level">0</span></p>
-    <progress id="levelProgress" value="0" max="100"></progress>
-  </div>
-  <div class="box-container">
-  <button class="box" id="generateItemButton"><img src="image1.png"></button>
-  <p>Caisse "Toile brisée"</p> 
-  <p>Prix: 2,34$</p> 
-  <p>Valeur max: 8,93$</p> 
-  <p>Valeur min: 0,54$</p> 
-</div>
-<p id="randomItem" class="random-item">Random Item | Price$</p>
+      <div class="main-container">
+    
+      <div class="progress-container">
+        <div class="level-money-container">
+          <p class="txt">Niveaux: <span id="level">0</span></p>
+          <p class="money">Votre argent: <span id="money">$100.00</span></p>
+          <div class="xp-bar-container">
+            <div class="progress-container">
+              <progress id="levelProgress" value="0" max="100"></progress>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="container">
 
-<hr>
+      <div class="cfc">
+      <div class="box-container">
+        <button id="generateItemButton"><img src="image1.png"></button>
+        <div class="txt">
+          <p>Caisse "Toile brisée"</p> 
+          <p>Prix: 2,34$</p> 
+          <p>Valeur max: 8,93$</p> 
+          <p>Valeur min: 0,54$</p> 
+        </div>
+      </div>
+    </div>
+      <p class="txt"><span id="randomItem"></span>Prix: <span id="randomItemPrice">$</span></p>
 
+      <hr>
 
-<div class="box-container">
-  <button class="box" id="generateItemButton2"><img src="image2.png"></button>
-</div>
-<p id="randomItem2" class="random-item">Random Item | Price$</p>
-</div>
+      <div class="cfc">
+      <div class="box-container">
+        <button class="box" id="generateItemButton2"><img src="image2.png"></button>
+        <div class="txt">
+        <p>Caisse "Glove"</p> 
+        <p>Prix: 2,34$</p> 
+        <p>Valeur max: 8,93$</p> 
+        <p>Valeur min: 0,54$</p>
+      </div>
+      </div>
+    </div>
+      <p class="txt"><span id="randomItem2"></span>Prix: <span id="randomItemPrice2">$</span></p>
 
+      <script src="script.js"></script>
+      <p class="p">Your current XP: <span id="xp">0</span></p>
+      <button class="xpbutton" id="gainXPButton">Gain XP</button>
 
-
-  <script src="script.js"></script>
-  <p class="p">Your current XP: <span id="xp">0</span></p>
-<button id="gainXPButton">Gain XP</button>
-
-
-  <!-- Fenêtre modale de la boutique -->
-<div class="modal" id="boutiqueModal">
-    <div class="modal-content">
-      <h2>Boutique</h2>
-      <button class="item-button" data-amount="10">Ajouter 10 $</button>
-      <button class="item-button" data-amount="20">Ajouter 20 $</button>
-      <button class="item-button" data-amount="50">Ajouter 50 $</button>
-      <button class="item-button" data-amount="100">Ajouter 100 $</button>
-      <button class="item-button" data-amount="200">Ajouter 200 $</button>
-      <button class="close-button" id="closeButton">X</button>
+      <!-- Fenêtre modale de la boutique -->
+      <div class="modal" id="boutiqueModal">
+        <div class="modal-content">
+          <h2>Boutique</h2>
+          <button class="item-button" data-amount="10">Ajouter 10 $</button>
+          <button class="item-button" data-amount="20">Ajouter 20 $</button>
+          <button class="item-button" data-amount="50">Ajouter 50 $</button>
+          <button class="item-button" data-amount="100">Ajouter 100 $</button>
+          <button class="item-button" data-amount="200">Ajouter 200 $</button>
+          <button class="close-button" id="closeButton">X</button>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -3,11 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeButton = document.getElementById("closeButton");
   const boutiqueModal = document.getElementById("boutiqueModal");
   const gainXPButton = document.getElementById("gainXPButton");
-  const generateItemButton = document.getElementById("generateItemButton");
-  const generateItemButton2 = document.getElementById("generateItemButton2");
   const levelProgress = document.getElementById("levelProgress");
   const xpElement = document.getElementById("xp");
   const levelElement = document.getElementById("level");
+  const moneyElement = document.getElementById("money"); // Nouvelle référence pour l'élément d'argent
   const randomItemElement = document.getElementById("randomItem");
   const randomItemPriceElement = document.getElementById("randomItemPrice");
   const randomItemElement2 = document.getElementById("randomItem2");
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let level = 0;
   const baseXP = 10;
   const exponent = 2;
-  let $ = 100;
+  let money = 100; // Mise à jour de la variable money
 
   addButton.addEventListener("click", () => {
     boutiqueModal.style.display = "block";
@@ -87,7 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateUI() {
     xpElement.textContent = xp;
-    levelElement.textContent = `${level} | $${$.toFixed(2)}`;
+    levelElement.textContent = `${level}`;
+    moneyElement.textContent = `$${money.toFixed(2)}`;
 
     const xpNeeded = calculateXPNeeded(level);
     const xpProgress = (xp / xpNeeded) * 100;
@@ -104,13 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handleGenerateItemButtonClick(items, randomItemElement, randomItemPriceElement) {
-    if ($) {
+    if (money) {
       const { randomItem, randomItemPrice } = generateRandomItem(items);
 
-      $ -= 2.34;
-      $ += randomItemPrice;
+      money -= 2.34;
+      money += randomItemPrice;
 
       randomItemPriceElement.textContent = `${randomItemPrice.toFixed(2)}$`;
+      randomItemElement.textContent = randomItem;
       randomItemElement.style.display = "block";
       gainXP();
       updateUI();
